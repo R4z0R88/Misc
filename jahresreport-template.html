@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<!--
+  ============================================================
+  JAHRESREPORT TEMPLATE – Azur Prime
+  ============================================================
+
+  VARIABLEN-ÜBERSICHT (alle zu ersetzenden Platzhalter):
+  --------------------------------------------------------
+  {{EIGENTÜMER_VORNAME}}     z.B. "Mei"
+  {{EINHEIT_NAME}}           z.B. "Mykonos A7"
+  {{EINHEIT_SCHLAFZIMMER}}   z.B. "3"
+
+  BENCHMARK-TABELLE:
+  {{AUSLASTUNG_EINHEIT}}     z.B. "62 %"
+  {{AUSLASTUNG_MARKT}}       z.B. "57 %"
+  {{AUSLASTUNG_EINORDNUNG}}  z.B. "▲ Über Markt"
+  {{ADR_EINHEIT}}            z.B. "160,34 €"
+  {{ADR_MARKT}}              z.B. "88 €"
+  {{ADR_EINORDNUNG}}         z.B. "▲ Deutlich über Markt"
+  {{REVPAR_EINHEIT}}         z.B. "100 €"
+  {{REVPAR_MARKT}}           z.B. "57 €"
+  {{REVPAR_EINORDNUNG}}      z.B. "▲ Über Markt"
+
+  FREITEXTE (bei Bedarf anpassen):
+  {{EINORDNUNG_TEXT_1}}      Erster Absatz in Sektion 2️⃣
+  {{EINORDNUNG_TEXT_2}}      Zweiter Absatz in Sektion 2️⃣
+  {{AUSBLICK_TEXT}}          Text in Sektion 4️⃣
+  {{FAZIT_TEXT}}             Text in Sektion 5️⃣
+
+  META:
+  {{BENCHMARK_REFRESHED}}    z.B. "Feb 25, 2026 at 08:00 PM"
+  ============================================================
+-->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jahresreport 2025 – {{EINHEIT_NAME}}</title>
+</head>
+
+<body style="margin:0; padding:0; font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background-color:#ffffff; color:#111827;">
+
+  <!-- ================================================
+       LOGO
+       ================================================ -->
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td align="center" style="padding:24px 0 12px;">
+        <img
+          src="https://assets.azurprime.com/email-assets/logo2.png"
+          alt="Azur Prime"
+          style="display:block; border:0; width:150px; max-width:150px; height:auto;"
+        />
+      </td>
+    </tr>
+  </table>
+
+  <!-- ================================================
+       CONTENT CONTAINER
+       ================================================ -->
+  <div style="padding:0 20px 40px; max-width:720px; margin:0 auto; line-height:1.6;">
+
+    <!-- HEADER -->
+    <div style="margin:18px 0 18px; text-align:left;">
+      <h1 style="font-size:22px; line-height:1.25; margin:0 0 4px; font-weight:700; color:#111827;">
+        Jahresreport 2025 – Einheit <span style="white-space:nowrap;">{{EINHEIT_NAME}}</span>
+      </h1>
+      <p style="margin:0 0 6px; font-size:12px; color:#6b7280;">
+        Jahresreport 2025 · Rolling 12 Months (letzte 365 Tage)
+      </p>
+    </div>
+
+    <!-- ANREDE -->
+    <p style="margin:18px 0 0;">
+      Hallo {{EIGENTÜMER_VORNAME}},
+    </p>
+
+    <p style="margin:12px 0 0; color:#374151;">
+      nachfolgend erhalten Sie den Jahresreport für Ihre Einheit <strong>{{EINHEIT_NAME}}</strong>.
+      Ziel ist eine transparente Einordnung der Performance der letzten 12 Monate – inklusive Markt-Referenz in
+      derselben Mikro-Lage. Auch diese Einheit ist klar im gehobenen Segment positioniert
+      ({{EINHEIT_SCHLAFZIMMER}} Schlafzimmer, hochwertige Ausstattung) und daher nicht in allen Punkten
+      1:1 mit Standardobjekten vergleichbar.
+    </p>
+
+    <!-- ================================================
+         1️⃣ BENCHMARK
+         ================================================ -->
+    <div style="margin:28px 0 0; padding:20px 22px; background:#fafafa; border:1px solid #e5e7eb; border-radius:12px;">
+      <p style="margin:0 0 12px; color:#111827; font-weight:700;">
+        1️⃣ Benchmark – Marktvergleich ({{EINHEIT_SCHLAFZIMMER}} Schlafzimmer)
+      </p>
+
+      <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;">
+        <thead>
+          <tr>
+            <th align="left" style="padding:10px 12px; font-size:13px; color:#6b7280; font-weight:600; border-bottom:1px solid #e5e7eb;">Kennzahl</th>
+            <th align="left" style="padding:10px 12px; font-size:13px; color:#6b7280; font-weight:600; border-bottom:1px solid #e5e7eb;">Ihre Einheit</th>
+            <th align="left" style="padding:10px 12px; font-size:13px; color:#6b7280; font-weight:600; border-bottom:1px solid #e5e7eb;">Markt Ø</th>
+            <th align="left" style="padding:10px 12px; font-size:13px; color:#6b7280; font-weight:600; border-bottom:1px solid #e5e7eb;">Einordnung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Auslastung -->
+          <tr>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#111827;">Auslastung</td>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#111827;"><strong>{{AUSLASTUNG_EINHEIT}}</strong></td>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#374151;">{{AUSLASTUNG_MARKT}}</td>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{AUSLASTUNG_EINORDNUNG}}</td>
+          </tr>
+          <!-- ADR -->
+          <tr>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#111827;">ADR (Ø Tagespreis)</td>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#111827;"><strong>{{ADR_EINHEIT}}</strong></td>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#374151;">{{ADR_MARKT}}</td>
+            <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{ADR_EINORDNUNG}}</td>
+          </tr>
+          <!-- RevPAR -->
+          <tr>
+            <td style="padding:12px; font-size:14px; color:#111827;">RevPAR</td>
+            <td style="padding:12px; font-size:14px; color:#111827;"><strong>{{REVPAR_EINHEIT}}</strong></td>
+            <td style="padding:12px; font-size:14px; color:#374151;">{{REVPAR_MARKT}}</td>
+            <td style="padding:12px; font-size:14px;">{{REVPAR_EINORDNUNG}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Legenden -->
+      <p style="margin:12px 0 0; font-size:12px; color:#6b7280;">
+        <strong>ADR (Average Daily Rate)</strong> beschreibt den durchschnittlich erzielten Tagespreis pro gebuchter Nacht.
+        Diese Kennzahl zeigt, auf welchem Preisniveau eine Einheit vom Markt akzeptiert wird.
+      </p>
+      <p style="margin:8px 0 0; font-size:12px; color:#6b7280;">
+        <strong>RevPAR</strong> (Revenue per Available Night) beschreibt den Umsatz pro verfügbarer Nacht.
+        Diese Kennzahl kombiniert Auslastung und Preisniveau und zeigt besonders klar, wie effizient der verfügbare Kalender monetarisiert wird.
+      </p>
+      <p style="margin:8px 0 0; font-size:12px; color:#6b7280;">
+        Benchmark-Hinweis: Der Marktvergleich erfolgt gegen eine kuratierte Vergleichsgruppe bestperformender
+        {{EINHEIT_SCHLAFZIMMER}}-Schlafzimmer-Einheiten in derselben Mikro-Lage auf Basis eines professionellen
+        Market-Pricing- &amp; Benchmark-Tools.
+      </p>
+      <p style="margin:10px 0 0; font-size:12px; color:#6b7280;">
+        Hinweis zur Aktualität der Marktwerte: <em>Last refreshed: {{BENCHMARK_REFRESHED}}</em>.
+      </p>
+    </div>
+
+    <!-- ================================================
+         2️⃣ EINORDNUNG
+         ================================================ -->
+    <div style="margin:28px 0 0; padding:22px; background:#fafafa; border:1px solid #e5e7eb; border-radius:12px;">
+      <p style="margin:0 0 12px; color:#111827; font-weight:700;">
+        2️⃣ Einordnung
+      </p>
+      <p style="margin:0 0 12px; color:#374151;">
+        {{EINORDNUNG_TEXT_1}}
+      </p>
+      <p style="margin:0; color:#374151;">
+        {{EINORDNUNG_TEXT_2}}
+      </p>
+    </div>
+
+    <!-- ================================================
+         3️⃣ SAISONALE EINORDNUNG (statischer Text)
+         ================================================ -->
+    <div style="margin:28px 0 0; padding:22px; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px;">
+      <p style="font-weight:700; margin:0 0 14px;">
+        3️⃣ Saisonale Einordnung &amp; aktueller Marktzyklus
+      </p>
+      <p style="margin:0 0 12px; color:#374151;">
+        Unsere Region ist klar <strong>saisonal geprägt</strong>. Die Monate von etwa <strong>November bis
+        Februar</strong> sind traditionell die nachfrageschwächste Phase des Jahres. Diese Entwicklung betrifft
+        den gesamten Markt in vergleichbaren Lagen und Segmenten.
+      </p>
+      <p style="margin:0; color:#374151;">
+        Erfahrungsgemäß zieht die Buchungslage <strong>ab März spürbar an</strong>, mit einer deutlichen Belebung
+        im Frühjahr und einer starken Entwicklung Richtung Sommer. Unser Fokus liegt aktuell auf einer sauberen
+        Positionierung, um von der kommenden Nachfrage optimal zu profitieren.
+      </p>
+    </div>
+
+    <!-- ================================================
+         4️⃣ AUSBLICK
+         ================================================ -->
+    <div style="margin:28px 0 0; padding:22px; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px;">
+      <p style="font-weight:700; margin:0 0 14px;">
+        4️⃣ Ausblick
+      </p>
+      <p style="margin:10px 0 0; color:#374151;">
+        {{AUSBLICK_TEXT}}
+      </p>
+    </div>
+
+    <!-- ================================================
+         5️⃣ MANAGEMENT-FAZIT
+         ================================================ -->
+    <div style="margin:32px 0 0; padding:26px; background:#ffffff; border:2px solid #d1d5db; border-radius:14px;">
+      <p style="margin:0 0 16px; font-size:16px; font-weight:700;">
+        5️⃣ Management-Fazit
+      </p>
+      <p style="margin:0; color:#374151;">
+        {{FAZIT_TEXT}}
+      </p>
+    </div>
+
+    <!-- ABSCHLUSS -->
+    <p style="margin:22px 0 0; color:#374151;">
+      Wenn Sie einzelne Punkte vertiefen möchten oder Fragen haben, melden Sie sich jederzeit gerne.
+    </p>
+    <p style="margin:14px 0 0; color:#111827; font-weight:700;">
+      Viele Grüße<br />
+      Azur Prime Team
+    </p>
+
+    <hr style="border:none; border-top:1px solid #e5e7eb; margin:40px 0 18px;">
+
+    <!-- ================================================
+         FOOTER (statisch)
+         ================================================ -->
+    <p style="font-size:12px; color:#6b7280; text-align:center; line-height:1.5; margin-bottom:0;">
+      Azur Prime · Holiday Rentals &amp; Property Management<br>
+      <a href="https://azurprime.com" style="color:#1d4ed8; text-decoration:none;">https://azurprime.com</a>
+      ·
+      <a href="mailto:office@azurprime.com" style="color:#1d4ed8; text-decoration:none;">office@azurprime.com</a>
+      <br><br>
+      <span style="color:#6b7280;">💬 WhatsApp Business (for quick inquiries)</span><br>
+      <a href="https://api.whatsapp.com/send?phone=905488212166" style="color:#1d4ed8; text-decoration:none;">Start WhatsApp chat</a>
+    </p>
+
+  </div><!-- /content container -->
+
+</body>
+</html>
