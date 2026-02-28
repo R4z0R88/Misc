@@ -14,6 +14,7 @@
 
   BENCHMARK-TABELLE:
   {{AUSLASTUNG_EINHEIT}}     z.B. "62 %"
+  {{AUSLASTUNG_OPERATIV}}    z.B. "74 %"  (Owner-Portal, Kalenderbasis)
   {{AUSLASTUNG_MARKT}}       z.B. "57 %"
   {{AUSLASTUNG_EINORDNUNG}}  z.B. "▲ Über Markt"
   {{ADR_EINHEIT}}            z.B. "160,34 €"
@@ -23,11 +24,19 @@
   {{REVPAR_MARKT}}           z.B. "57 €"
   {{REVPAR_EINORDNUNG}}      z.B. "▲ Über Markt"
 
-  FREITEXTE (bei Bedarf anpassen):
-  {{EINORDNUNG_TEXT_1}}      Erster Absatz in Sektion 2️⃣
-  {{EINORDNUNG_TEXT_2}}      Zweiter Absatz in Sektion 2️⃣
-  {{AUSBLICK_TEXT}}          Text in Sektion 4️⃣
-  {{FAZIT_TEXT}}             Text in Sektion 5️⃣
+  DISTRIBUTION (Sektion 2️⃣ – weglassen wenn Nicht-Airbnb < 15 %):
+  {{ANTEIL_AIRBNB}}          z.B. "72"  (nur Zahl, ohne %)
+  {{ANTEIL_SONSTIGE}}        z.B. "28"  (nur Zahl, ohne %)
+
+  FREITEXTE:
+  {{EINORDNUNG_TEXT_1}}      Erster Absatz in Sektion 3️⃣
+  {{EINORDNUNG_TEXT_2}}      Zweiter Absatz in Sektion 3️⃣
+  {{AUSBLICK_TEXT}}          Text in Sektion 5️⃣
+  {{FAZIT_TEXT}}             Text in Sektion 6️⃣
+
+  PERSÖNLICHE NOTIZ:
+  {{PERSÖNLICHE_NOTIZ}}      Ein individueller Satz zur Einheit, z.B. eine konkrete
+                             Beobachtung aus der Saison oder ein Highlight.
 
   META:
   {{BENCHMARK_REFRESHED}}    z.B. "Feb 25, 2026 at 08:00 PM"
@@ -57,6 +66,17 @@
     </tr>
   </table>
 
+  <!-- DIVIDER LINE UNDER LOGO -->
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td style="padding:0 20px;">
+        <div style="max-width:720px; margin:0 auto;">
+          <hr style="border:none; border-top:1px solid #bfdbfe; margin:4px 0 0;">
+        </div>
+      </td>
+    </tr>
+  </table>
+
   <!-- ================================================
        CONTENT CONTAINER
        ================================================ -->
@@ -67,9 +87,6 @@
       <h1 style="font-size:22px; line-height:1.25; margin:0 0 4px; font-weight:700; color:#111827;">
         Jahresreport 2025 – Einheit <span style="white-space:nowrap;">{{EINHEIT_NAME}}</span>
       </h1>
-      <p style="margin:0 0 6px; font-size:12px; color:#6b7280;">
-        Jahresreport 2025 · Rolling 12 Months (letzte 365 Tage)
-      </p>
     </div>
 
     <!-- ANREDE -->
@@ -83,6 +100,11 @@
       derselben Mikro-Lage. Auch diese Einheit ist klar im gehobenen Segment positioniert
       ({{EINHEIT_SCHLAFZIMMER}} Schlafzimmer, hochwertige Ausstattung) und daher nicht in allen Punkten
       1:1 mit Standardobjekten vergleichbar.
+    </p>
+
+    <!-- PERSÖNLICHE NOTIZ – ein individueller Satz pro Eigentümer -->
+    <p style="margin:12px 0 0; color:#374151; font-style:italic; border-left:3px solid #d1d5db; padding-left:12px;">
+      {{PERSÖNLICHE_NOTIZ}}
     </p>
 
     <!-- ================================================
@@ -110,6 +132,13 @@
             <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#374151;">{{AUSLASTUNG_MARKT}}</td>
             <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb;">{{AUSLASTUNG_EINORDNUNG}}</td>
           </tr>
+          <!-- Operative Auslastung (Kalenderbasis) -->
+          <tr style="background:#f9fafb;">
+            <td style="padding:10px 12px; font-size:13px; color:#6b7280; border-bottom:1px solid #e5e7eb;">↳ Operativ (Kalenderbasis)</td>
+            <td style="padding:10px 12px; font-size:13px; color:#374151; border-bottom:1px solid #e5e7eb;"><strong>{{AUSLASTUNG_OPERATIV}}</strong></td>
+            <td style="padding:10px 12px; font-size:13px; color:#9ca3af; border-bottom:1px solid #e5e7eb;">Owner-Portal</td>
+            <td style="padding:10px 12px; font-size:13px; color:#9ca3af; border-bottom:1px solid #e5e7eb;">Kalenderbasis</td>
+          </tr>
           <!-- ADR -->
           <tr>
             <td style="padding:12px; font-size:14px; border-bottom:1px solid #e5e7eb; color:#111827;">ADR (Ø Tagespreis)</td>
@@ -127,6 +156,12 @@
         </tbody>
       </table>
 
+      <!-- Auslastungs-Methodenhinweis -->
+      <p style="margin:12px 0 0; font-size:12px; color:#9ca3af; font-style:italic;">
+        Die Markt-Auslastung folgt der Benchmark-Logik des eingesetzten Pricing-Tools und basiert auf verfügbaren Plattformdaten.
+        Die operative Auslastung (Owner-Portal) errechnet sich aus den tatsächlich verfügbaren Kalendernächten der Einheit.
+      </p>
+
       <!-- Legenden -->
       <p style="margin:12px 0 0; font-size:12px; color:#6b7280;">
         <strong>ADR (Average Daily Rate)</strong> beschreibt den durchschnittlich erzielten Tagespreis pro gebuchter Nacht.
@@ -141,8 +176,23 @@
         {{EINHEIT_SCHLAFZIMMER}}-Schlafzimmer-Einheiten in derselben Mikro-Lage auf Basis eines professionellen
         Market-Pricing- &amp; Benchmark-Tools.
       </p>
+
+      <!-- Benchmark-Disclaimer Callout -->
+      <div style="margin:14px 0 0; padding:12px 14px; background:#eff6ff; border-left:4px solid #3b82f6; border-radius:6px;">
+        <p style="margin:0; font-size:12px; color:#1e40af; line-height:1.6;">
+          <strong>ℹ️ Hinweis zur Benchmark-Basis:</strong>
+          <em>
+            Der Marktvergleich basiert auf öffentlich verfügbaren Plattformdaten (Airbnb-Segment) zur Sicherstellung
+            einer konsistenten Vergleichslogik. Alle Buchungskanäle fließen über die Kalendersynchronisation in die Auswertung ein. Bei Direktbuchungen wird der Umsatz auf Basis der hinterlegten Kalenderpreise berechnet – die Auswirkung auf die Gesamtkennzahlen ist methodisch vernachlässigbar.
+            Die ausgewiesenen KPIs (ADR, RevPAR, Auslastung) basieren auf <strong>Brutto-Kalenderpreisen vor Provisionen und Gebühren</strong> –
+            konsistent mit der Berechnungsmethodik der PriceLabs Marktdaten, um einen methodisch sauberen Vergleich zu gewährleisten.
+            Das <strong>Eigentümer-Portal</strong> bildet die <strong>vollständige Gesamtperformance</strong> inklusive aller Buchungskanäle ab.
+          </em>
+        </p>
+      </div>
+
       <p style="margin:10px 0 0; font-size:12px; color:#6b7280;">
-        Hinweis zur Aktualität der Marktwerte: <em>Last refreshed: {{BENCHMARK_REFRESHED}}</em>.
+        Hinweis zur Aktualität der Marktwerte: <em>Zuletzt aktualisiert: {{BENCHMARK_REFRESHED}}</em>.
       </p>
     </div>
 
@@ -162,11 +212,65 @@
     </div>
 
     <!-- ================================================
-         3️⃣ SAISONALE EINORDNUNG (statischer Text)
+         3️⃣ DISTRIBUTION
+         Nur einbauen wenn Nicht-Airbnb-Anteil (Direkt + Manuell) >= 15 %.
+         Basis: Buchungsumsatz (nicht gebuchte Nächte).
+         Variablen: {{ANTEIL_AIRBNB}} und {{ANTEIL_SONSTIGE}} (nur Zahlen, ohne %)
+         ================================================ -->
+    <div style="margin:28px 0 0; padding:22px; background:#fafafa; border:1px solid #e5e7eb; border-radius:12px;">
+      <p style="margin:0 0 16px; color:#111827; font-weight:700;">
+        3️⃣ Distribution &amp; Vermarktungsstruktur
+      </p>
+
+      <!-- Visuelle Kanalverteilung (Balkenchart) -->
+      <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse; margin-bottom:16px;">
+        <tbody>
+          <!-- Airbnb -->
+          <tr>
+            <td style="padding:5px 0; font-size:13px; color:#374151; width:150px;">Airbnb</td>
+            <td style="padding:5px 0;">
+              <div style="background:#e5e7eb; border-radius:4px; height:13px; width:100%;">
+                <div style="background:#0d9488; border-radius:4px; height:13px; width:{{ANTEIL_AIRBNB}}%;"></div>
+              </div>
+            </td>
+            <td style="padding:5px 0 5px 10px; font-size:13px; font-weight:700; color:#111827; white-space:nowrap; width:44px;">
+              {{ANTEIL_AIRBNB}}&nbsp;%
+            </td>
+          </tr>
+          <!-- Direkt & Manuell -->
+          <tr>
+            <td style="padding:5px 0; font-size:13px; color:#374151;">Direkt &amp; Manuell</td>
+            <td style="padding:5px 0;">
+              <div style="background:#e5e7eb; border-radius:4px; height:13px; width:100%;">
+                <div style="background:#6366f1; border-radius:4px; height:13px; width:{{ANTEIL_SONSTIGE}}%;"></div>
+              </div>
+            </td>
+            <td style="padding:5px 0 5px 10px; font-size:13px; font-weight:700; color:#111827; white-space:nowrap;">
+              {{ANTEIL_SONSTIGE}}&nbsp;%
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="margin:0 0 10px; color:#374151; font-size:14px;">
+        Die Darstellung bezieht sich auf den <strong>Buchungsumsatz</strong> – nicht auf gebuchte Nächte.
+        Eigentümerblockierungen und kalendarische Sperrzeiten bleiben damit außen vor,
+        was eine sauberere Abbildung der tatsächlichen Vermarktungsleistung ermöglicht.
+      </p>
+      <p style="margin:0; color:#374151; font-size:14px;">
+        <strong>{{ANTEIL_SONSTIGE}}&nbsp;% des erzielten Umsatzes</strong> entfiel auf plattformunabhängige Kanäle –
+        ohne Airbnb-Provision und ohne Abhängigkeit von externen Plattformentscheidungen.
+        Eine strukturell diversifizierte Vermarktung reduziert das Provisionsrisiko langfristig
+        und sichert die Buchungsbasis auch bei Veränderungen in Plattform-Algorithmen oder -konditionen.
+      </p>
+    </div>
+
+    <!-- ================================================
+         4️⃣ SAISONALE EINORDNUNG (statischer Text)
          ================================================ -->
     <div style="margin:28px 0 0; padding:22px; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px;">
       <p style="font-weight:700; margin:0 0 14px;">
-        3️⃣ Saisonale Einordnung &amp; aktueller Marktzyklus
+        4️⃣ Saisonale Einordnung &amp; aktueller Marktzyklus
       </p>
       <p style="margin:0 0 12px; color:#374151;">
         Unsere Region ist klar <strong>saisonal geprägt</strong>. Die Monate von etwa <strong>November bis
@@ -181,11 +285,11 @@
     </div>
 
     <!-- ================================================
-         4️⃣ AUSBLICK
+         5️⃣ AUSBLICK
          ================================================ -->
     <div style="margin:28px 0 0; padding:22px; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px;">
       <p style="font-weight:700; margin:0 0 14px;">
-        4️⃣ Ausblick
+        5️⃣ Ausblick
       </p>
       <p style="margin:10px 0 0; color:#374151;">
         {{AUSBLICK_TEXT}}
@@ -193,27 +297,47 @@
     </div>
 
     <!-- ================================================
-         5️⃣ MANAGEMENT-FAZIT
+         6️⃣ MANAGEMENT-FAZIT
          ================================================ -->
     <div style="margin:32px 0 0; padding:26px; background:#ffffff; border:2px solid #d1d5db; border-radius:14px;">
       <p style="margin:0 0 16px; font-size:16px; font-weight:700;">
-        5️⃣ Management-Fazit
+        6️⃣ Management-Fazit
       </p>
       <p style="margin:0; color:#374151;">
         {{FAZIT_TEXT}}
+      </p>
+      <p style="margin:12px 0 0; color:#374151;">
+        Die vollständigen Umsatzzahlen – aufgeschlüsselt nach Kanälen, Zeiträumen und Nettoergebnis –
+        sind im <strong>Eigentümer-Portal</strong> jederzeit einsehbar und spiegeln das Ergebnis
+        dieser Positionierung in ihrer Gesamtheit wider.
       </p>
     </div>
 
     <!-- ABSCHLUSS -->
     <p style="margin:22px 0 0; color:#374151;">
-      Wenn Sie einzelne Punkte vertiefen möchten oder Fragen haben, melden Sie sich jederzeit gerne.
+      Für Rückfragen stehen wir jederzeit zur Verfügung. Die vollständige Auswertung Ihrer Einheit
+      – inklusive aller Umsatzdaten, Abrechnungen und Buchungshistorie – finden Sie direkt im Portal.
     </p>
-    <p style="margin:14px 0 0; color:#111827; font-weight:700;">
+
+    <!-- PORTAL CTA -->
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin:24px 0 0;">
+      <tr>
+        <td style="border-radius:8px; background:#111827;">
+          <a href="https://owners.azurprime.com/dashboard"
+             style="display:inline-block; padding:13px 28px; font-size:14px; font-weight:600;
+                    color:#ffffff; text-decoration:none; letter-spacing:0.01em;">
+            Zum Eigentümer-Portal →
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <p style="margin:20px 0 0; color:#111827; font-weight:700;">
       Viele Grüße<br />
       Azur Prime Team
     </p>
 
-    <hr style="border:none; border-top:1px solid #e5e7eb; margin:40px 0 18px;">
+    <hr style="border:none; border-top:1px solid #bfdbfe; margin:40px 0 18px;">
 
     <!-- ================================================
          FOOTER (statisch)
